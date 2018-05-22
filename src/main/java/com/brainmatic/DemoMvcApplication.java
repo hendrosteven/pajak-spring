@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoMvcApplication {
 
 	public static void main(String[] args) {
-		//Comments
+		//Comments and comments
 		SpringApplication.run(DemoMvcApplication.class, args);
 	}
 }
