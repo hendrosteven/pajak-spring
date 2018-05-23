@@ -1,5 +1,7 @@
 package com.brainmatic.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +27,9 @@ public class MovieService {
 	
 	public Iterable<Movie> findAll(){
 		return repo.findAll();
+	}
+	
+	public List<Movie> findByGenreId(long id){
+		return repo.findByGenreId(id);
 	}
 }

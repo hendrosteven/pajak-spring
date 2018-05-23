@@ -26,7 +26,7 @@ public class GenreService {
 	}
 	
 	public Iterable<Genre> findAll(){
-		return repo.findAll();
+		return repo.findAllByOrderByNameAsc();
 	}
 	
 }
