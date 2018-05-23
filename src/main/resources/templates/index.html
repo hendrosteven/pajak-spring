@@ -51,15 +51,31 @@
 
 	<div class="container">
 		<div class="col-lg-2">
-			<p> <a href="/">All Genre</a></p>
+			<p>
+				<a href="/">All Genre</a>
+			</p>
 			<p th:each="genre: ${listGenre}">
-				<a th:href="@{/genre/}+${genre.id}"> 
-					<span th:text="${genre.name}"></span>
+				<a th:href="@{/genre/}+${genre.id}"> <span
+					th:text="${genre.name}"></span>
 				</a>
 			</p>
 		</div>
 
 		<div class="col-lg-10">
+			<div class="row">
+				<div class="col-lg-6 pull-right">
+					<form class="input-group">
+						<input type="text" class="form-control" placeholder="Search title..." /> 
+						<span class="input-group-btn">
+							<button class="btn btn-success" type="button">
+								<span class="glyphicon glyphicon-search" aria-hidden="true">
+								</span>
+							</button>
+						</span>
+					</form>
+				</div>
+			</div>
+			<br />
 			<div class="row">
 				<div class="col-lg-3 col-md-4 col-sm-6"
 					th:each="movie: ${listMovie}">
@@ -74,6 +90,7 @@
 						</div>
 					</div>
 				</div>
+				<p th:if="${listMovie.isEmpty()}">No movies found</p>
 			</div>
 		</div>
 	</div>

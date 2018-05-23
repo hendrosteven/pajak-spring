@@ -8,7 +8,7 @@ import com.brainmatic.model.Movie;
 
 public interface MovieRepo extends CrudRepository<Movie, Long> {
 	
-	public List<Movie> findByTitle(String title);
+	public List<Movie> findByTitleContaining(String title);
 	
 	public List<Movie> findByGenreId(Long id);
 }
