@@ -32,4 +32,9 @@ public class MovieService {
 	public List<Movie> findByGenreId(long id){
 		return repo.findByGenreId(id);
 	}
+	
+	
+	public List<Movie> findByTitle(String title){
+		return repo.findByTitleContaining(title);
+	}
 }
