@@ -64,11 +64,11 @@
 		<div class="col-lg-10">
 			<div class="row">
 				<div class="col-lg-6 pull-right">
-					<form class="input-group" method="post" th:action="@{/search}"
-						th:object="${searchForm}">
-						<input type="text" class="form-control"
-							placeholder="Search title..." th:field="*{searchKey}" /> <span
-							class="input-group-btn">
+					<form class="input-group" method="post" 
+						th:action="@{/search}" th:object="${searchForm}">
+						<input type="text" class="form-control" 
+								placeholder="Search title..." th:field="*{searchKey}"/> 
+						<span class="input-group-btn">
 							<button class="btn btn-success" type="submit">
 								<span class="glyphicon glyphicon-search" aria-hidden="true">
 								</span>
@@ -79,22 +79,19 @@
 			</div>
 			<br />
 			<div class="row">
-				<div class="col-lg-3 col-md-4 col-sm-6"
-					th:each="movie: ${listMovie}">
+				<div class="col-lg-4">
 					<div class="panel panel-default">
-						<a th:href="@{/movie/}+${movie.id}">
-							<div class="panel-body">
-								<img height="100px" th:src="${movie.image}"
-									class="img-responsive" />
-								<h3>
-									<span th:text="${movie.title}"></span>
-								</h3>
-								<p th:text="${movie.genre.name}"></p>
-							</div>
-						</a>
+						<div class="panel-body">
+							<img th:src="${movie.image}"
+								class="img-responsive" />
+						</div>
 					</div>
 				</div>
-				<p th:if="${listMovie.isEmpty()}">No movies found</p>
+				<div class="col-lg-8">
+					<h3 th:text="${movie.title}"></h3>
+					<p th:text="${movie.code}"/>
+					<p th:text="${movie.sinopsis}"/>
+				</div>
 			</div>
 		</div>
 	</div>

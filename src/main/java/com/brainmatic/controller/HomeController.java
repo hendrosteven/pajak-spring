@@ -47,4 +47,12 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value="/movie/{id}")
+	public String findById(@PathVariable("id") long id, Model model) {
+		model.addAttribute("movie", movieService.findById(id)); 
+		model.addAttribute("listGenre", genreService.findAll());
+		model.addAttribute("searchForm", new SearchForm());
+		return "detail";
+	}
+	
 }
