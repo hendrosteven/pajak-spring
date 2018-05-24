@@ -36,7 +36,7 @@
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a th:href="@{/}">Home</a></li>
-							<li><a href="#">Movies</a></li>
+							<li><a th:href="@{/input/movie}">Movies</a></li>
 							<li><a th:href="@{/input/genre}">Genre</a></li>
 							<li class="dropdown" th:if="${session.CURRENT_USER==null}" >
 								<a href="#" class="dropdown-toggle"

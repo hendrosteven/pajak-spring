@@ -25,6 +25,10 @@ public class MovieService {
 		return repo.findOne(id);
 	}
 	
+	public Movie findByCode(String code) {
+		return repo.findByCode(code);
+	}
+	
 	public Iterable<Movie> findAll(){
 		return repo.findAll();
 	}

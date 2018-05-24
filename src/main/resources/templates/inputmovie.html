@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Spring MVC</title>
+<div th:replace="fragments/header::style"></div>
+</head>
+<body>
+
+	<div th:replace="fragments/header::header"></div>
+
+	<div class="container">
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6">
+			<h3 class="text-center">Input Movie</h3>
+			<span th:if="${session.ERROR}!=null">
+				<div class="alert alert-danger">
+					<strong>Warning!</strong>
+					<p th:text="${session.ERROR.message}"></p>
+				</div> <span th:remove="all" th:text="${session.remove('ERROR')}">
+			</span>
+			</span>
+			<form method="post" th:action="@{/input/movie}"
+				th:object="${movieForm}">
+				<div class="form-group">
+					<label for="name">Movie Code</label> <input type="text"
+						class="form-control" th:field="*{code}" />
+				</div>
+				<div class="form-group">
+					<label for="name">Movie Title</label> <input type="text"
+						class="form-control" th:field="*{title}" />
+				</div>
+				<div class="form-group">
+					<label for="name">Genre</label> 
+					<select class="form-control" th:field="*{genre.id}">
+						<option th:each="genre : ${listGenre}"  th:value="${genre.id}"
+							th:text="${genre.name}">
+						</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="name">Movie Image</label> <input type="text"
+						class="form-control" th:field="*{image}" />
+				</div>
+				<div class="form-group">
+					<label for="name">Movie Sinopsis</label>
+					<textarea rows="6" class="form-control" th:field="*{sinopsis}"></textarea>
+				</div>
+				<p>
+					<input type="submit" class="btn btn-success" value="Save Movie" />
+				</p>
+			</form>
+		</div>
+		<div class="col-lg-3"></div>
+	</div>
+
+	<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>

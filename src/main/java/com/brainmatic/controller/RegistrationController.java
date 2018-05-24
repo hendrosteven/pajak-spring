@@ -44,7 +44,6 @@ public class RegistrationController {
 			ErrorMessage msg = new ErrorMessage();
 			msg.setMessage("Email already registered");
 			session.setAttribute("ERROR", msg);
-			model.addAttribute("regForm", new RegistrationForm());
 			return "redirect:/register";
 		}
 	}

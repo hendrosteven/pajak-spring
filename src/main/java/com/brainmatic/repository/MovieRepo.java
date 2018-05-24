@@ -11,4 +11,6 @@ public interface MovieRepo extends CrudRepository<Movie, Long> {
 	public List<Movie> findByTitleContaining(String title);
 	
 	public List<Movie> findByGenreId(Long id);
+	
+	public Movie findByCode(String code);
 }
