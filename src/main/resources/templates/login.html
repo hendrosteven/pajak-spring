@@ -17,18 +17,21 @@
 				<div class="alert alert-danger">
 					<strong>Warning!</strong>
 					<p th:text="${session.ERROR.message}"></p>
-				</div> 
-				<span th:remove="all" th:text="${session.remove('ERROR')}">
-				</span>
+				</div> <span th:remove="all" th:text="${session.remove('ERROR')}">
+			</span>
 			</span>
 			<form method="post" th:action="@{/login}" th:object="${loginForm}">
 				<div class="form-group">
 					<label for="name">Email</label> <input type="text"
-						class="form-control" th:field="*{email}" />
+						class="form-control" th:field="*{email}" /> 
+					<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email
+						Error</label>
 				</div>
 				<div class="form-group">
 					<label for="name">Password</label> <input type="password"
 						class="form-control" th:field="*{password}" />
+					<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password
+						Error</label>
 				</div>
 				<p>
 					<input type="submit" class="btn btn-success" value="Login" />

@@ -1,11 +1,14 @@
 package com.brainmatic.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.brainmatic.dto.ErrorMessage;
 import com.brainmatic.dto.RegistrationForm;
 import com.brainmatic.model.User;
 import com.brainmatic.service.UserService;
@@ -16,6 +19,8 @@ public class RegistrationController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private HttpSession session;
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String register(Model model) {
@@ -36,6 +41,9 @@ public class RegistrationController {
 			return "redirect:/";
 		}else {
 			//add messages
+			ErrorMessage msg = new ErrorMessage();
+			msg.setMessage("Email already registered");
+			session.setAttribute("ERROR", msg);
 			return "redirect:/register";
 		}
 	}

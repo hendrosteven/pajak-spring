@@ -1,7 +1,13 @@
 package com.brainmatic.dto;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+
 public class LoginForm {
+	
 	private String email;
+	
 	private String password;
 	
 	public String getEmail() {

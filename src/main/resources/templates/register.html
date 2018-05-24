@@ -13,6 +13,14 @@
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
 			<h3 class="text-center">Register</h3>
+			<span th:if="${session.ERROR}!=null">
+				<div class="alert alert-danger">
+					<strong>Warning!</strong>
+					<p th:text="${session.ERROR.message}"></p>
+				</div> 
+				<span th:remove="all" th:text="${session.remove('ERROR')}">
+				</span>
+			</span>
 			<form method="post" th:action="@{/register}" th:object="${regForm}">
 				<div class="form-group">
 					<label for="name">Full Name</label> <input type="text"
