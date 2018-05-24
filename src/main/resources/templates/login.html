@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Spring MVC</title>
+<div th:replace="fragments/header::style"></div>
+</head>
+<body>
+
+	<div th:replace="fragments/header::header"></div>
+
+	<div class="container">
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<h3 class="text-center">Login</h3>
+			<span th:if="${session.ERROR}!=null">
+				<div class="alert alert-danger">
+					<strong>Warning!</strong>
+					<p th:text="${session.ERROR.message}"></p>
+				</div> 
+				<span th:remove="all" th:text="${session.remove('ERROR')}">
+				</span>
+			</span>
+			<form method="post" th:action="@{/login}" th:object="${loginForm}">
+				<div class="form-group">
+					<label for="name">Email</label> <input type="text"
+						class="form-control" th:field="*{email}" />
+				</div>
+				<div class="form-group">
+					<label for="name">Password</label> <input type="password"
+						class="form-control" th:field="*{password}" />
+				</div>
+				<p>
+					<input type="submit" class="btn btn-success" value="Login" />
+				</p>
+			</form>
+		</div>
+		<div class="col-lg-4"></div>
+	</div>
+
+	<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>
