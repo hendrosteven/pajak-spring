@@ -1,12 +1,26 @@
 package com.brainmatic.dto;
 
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.brainmatic.model.Genre;
 
 public class MovieForm {
+	
+	@NotEmpty(message = "Code is required")
+	@Pattern(regexp = "MV[0-9]+",message = "Code must be start with MV")
 	private String code;
+	
+	@NotEmpty(message = "Title is required")
 	private String title;
+	
+	@NotEmpty(message = "Image is required")
 	private String image;
+	
+	@NotEmpty(message = "Sinopsis is required")
 	private String sinopsis;
+	
 	private Genre genre;
 	
 	public String getCode() {
