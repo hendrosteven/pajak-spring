@@ -37,7 +37,7 @@ public class UserPrintController {
 			Map<String, Object> param = new HashMap<>();
 			JasperPrint jasperPrint = JasperFillManager
 					.fillReport(jasperReport, param, dataSource.getConnection());
-			response.setContentType("application/x-pdf");
+			response.setContentType("application/pdf");
 			response.setHeader("Content-disposition", "inline; filename=User-List.pdf");
 			final OutputStream outStream = response.getOutputStream();
 			JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
