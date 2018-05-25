@@ -1,15 +1,16 @@
 package com.brainmatic.dto;
 
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.brainmatic.model.Genre;
 
 public class MovieForm {
-	
 	@NotEmpty(message = "Code is required")
 	@Pattern(regexp = "MV[0-9]+",message = "Code must be start with MV")
+	@Size(min=3, max = 5, message="Code length must be 3 to 5 characters")
 	private String code;
 	
 	@NotEmpty(message = "Title is required")
