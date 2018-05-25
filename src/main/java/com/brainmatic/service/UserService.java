@@ -27,6 +27,14 @@ public class UserService {
 		}
 	}
 	
+	public User findByEmail(String email) {
+		return repo.findByEmail(email);
+	}
+	
+	public void removeUser(User user) {
+		repo.delete(user);
+	}
+	
 	public User login(String email, String password) {
 		String hash = DigestUtils
 				.md5DigestAsHex(password.getBytes());
