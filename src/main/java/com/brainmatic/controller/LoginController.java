@@ -42,7 +42,7 @@ public class LoginController {
 		} else {
 			// error message
 			ErrorMessage msg = new ErrorMessage();
-			msg.setMessage("Invalid email or Password");
+			msg.getMessages().add("Invalid email or Password");
 			session.setAttribute("ERROR", msg);
 			model.addAttribute("loginForm", new LoginForm());
 			return "redirect:/login";

@@ -51,7 +51,7 @@ public class MovieController {
 			return "redirect:/";
 		} else {
 			ErrorMessage msg = new ErrorMessage();
-			msg.setMessage("Code already registered");
+			msg.getMessages().add("Code already registered");
 			session.setAttribute("ERROR", msg);
 			return "redirect:/input/movie";
 		}

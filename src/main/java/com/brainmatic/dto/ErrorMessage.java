@@ -1,15 +1,19 @@
 package com.brainmatic.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ErrorMessage {
-	private String message;
+	private List<String> messages = new ArrayList<>();
 
-	public String getMessage() {
-		return message;
+	public List<String> getMessages() {
+		return messages;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessages(List<String> messages) {
+		this.messages = messages;
 	}
+
 	
 	
 }

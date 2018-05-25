@@ -16,7 +16,9 @@
 			<span th:if="${session.ERROR}!=null">
 				<div class="alert alert-danger">
 					<strong>Warning!</strong>
-					<p th:text="${session.ERROR.message}"></p>
+					<ul>
+						<li th:each="msg: ${session.ERROR.messages}" th:text="${msg}"></li>
+					</ul>
 				</div> 
 				<span th:remove="all" th:text="${session.remove('ERROR')}">
 				</span>
